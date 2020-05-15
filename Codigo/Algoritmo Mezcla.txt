@@ -1,0 +1,74 @@
+def ordenamientoPorMezcla (unaLista):
+    print("Dividir ", unaLista)
+    if len(unaLista)<2:
+        return unaLista
+    else:
+        '''divido la tabla en dos'''
+        mitad = len(unaLista)//2
+        '''De la mitad tomo la parte derecha'''
+        mitadIzquierda = unaLista[:mitad]
+        '''De la mitad tomo la parte izquierda'''
+        mitadDerecha = unaLista[mitad:]
+
+        '''Utilizo recursividad para volver a dividir la lista'''
+        izquierda = ordenamientoPorMezcla(mitadIzquierda)
+        derecha = ordenamientoPorMezcla(mitadDerecha)
+
+        return ordenar(izquierda, derecha)
+
+
+def ordenar(mitadIzquierda, mitadDerecha):
+    i, j = 0,0
+    result = []
+
+    while i < len(mitadIzquierda) and j < len(mitadDerecha):
+        if mitadIzquierda[i] < mitadDerecha[j]:
+                result.append(mitadIzquierda[i])
+                i=i+1
+        else:
+                result.append(mitadDerecha[j])
+                j=j+1
+
+    result += mitadIzquierda[i:]
+    result += mitadDerecha[j:]
+
+    print("Mezclar ",result)
+    return result       
+
+def busquedaBinaria(arrayOrdenado, valorABuscar):
+    '''Primero se busca por todo el array'''
+    primeraPosicionArray = 0
+    ultimaPosicionArray = len(arrayOrdenado) - 1
+    encontrado = False
+
+    '''Se va a repetir mientras la primera posicion del array sea menor igual a la ultima y que no se haya encontrado'''
+    while primeraPosicionArray <= ultimaPosicionArray and not encontrado:
+        '''Busco la posicion de la mitad del array'''
+        posicionMitad = (primeraPosicionArray + ultimaPosicionArray) // 2
+        '''Consulto si el valor de esta posición es igual al valor que se desea encontrar'''
+        if arrayOrdenado[posicionMitad] == valorABuscar:
+            encontrado = True
+
+
+        else:
+            '''Consulto si el valor a buscar es mayor al valor que se encuentra en la posición de la mitad del array'''
+            if(valorABuscar > arrayOrdenado[posicionMitad]):
+                '''Si es así solo tengo que buscar el valor de la mitad para arriba
+                por lo que la primera posición ahora es la mitad mas uno'''
+                primeraPosicionArray = posicionMitad + 1
+            else:
+                ultimaPosicionArray = posicionMitad - 1
+
+    return encontrado
+
+
+unaLista = [54,26,93,17,77,31,44,55,20]
+arrayOrdenado = ordenamientoPorMezcla(unaLista)
+print(arrayOrdenado)
+
+numeroABuscar = 17
+
+if(busquedaBinaria(arrayOrdenado, numeroABuscar)):
+    print("EL NUMERO ", numeroABuscar , " SE ENCUENTRA EN EL ARRAY")
+else:
+    print("EL NUMERO ", numeroABuscar , " NO SE ENCUENTRA EN EL ARRAY")
