@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>C# Grupo 6</title>
+		<title>Estructura de Datos</title>
 
 		<link rel="stylesheet" href="css/reset.css">
 		<link rel="stylesheet" href="css/reveal.css">
@@ -29,131 +29,371 @@
 			<div class="slides">
 				<!-- ESTA ES LA PRIMERA DIAPOSITIVA -->
 				<section>
-					<h1>C#</h1>
-					<h3>TP 1 - Objetos 2</h3>
-					<h3>UNAHUR</h3>
-					<p>
-						<small>Created by <a href="">Grupo 6</a></small>
-					</p>
+					<h1>Algoritmos de Ordenamiento</h1>
+					
 				</section>
 				<section>
-					<h3>¿QUE ES?</h3>
+					
+					<h3>TP 2 - Estructura de Datos</h3>
+					<img src="imagenes/Logo.png" width="200" height="200">
+					
 					<p>
-						C# es un lenguaje de programación multiparadigma desarrollado por Microsoft. Forma parte de su plataforma .NET.
+						<small>Created by <a href="">Grupo 11</a></small>
+					</p>
+				</section>
+				
+				
+
+				
+				<section>
+					<h2>Comparativa entre los distintos algoritmos de ordemaniento</h2>
+				</section>
+
+				<section>
+					<h2>
+						Los algoritmos que se analizarán serán:
+					</h2>
+					<h3>
+						Burbuja (Bubble Sort)
+					</h3>
+					<h3>
+						Inserción (Insertion Sort)
+					</h3>
+					<h3>
+						Mezclas (Merge Sort)
+					</h3>
+					<h3>
+						Rápido (Quicksort)
+					</h3>
+					<h3>
+						Selección (Selection Sort)
+					</h3>
+				</section>
+				<section>
+				<section>
+				<h3>Algaritmo de Burbuja</h3>
+				<p>La forma en que funciona este algoritmo es recorriendo la lista y comparando los valores entre si.</p>
+				<p>Por ejemplo:</p>
+				<p>Compara el valor de la posicion 0 con la 1, si el valor de la posicion 1 es menor que el valor de la posicion 0 se intercambian los valores entre si. Si el valor de la posicion 0 es menor no se intercambian</p>
+				<p>Despues compara el valor de la posicion 1 con el valor de la posicion 2 y realiza el mismo proceidmiento anterior.</p>
+				<p>Por lo tanto el algoritmo recorrera la lista tantas veces como se anecesario hasta ordenar todos los valores.</p>
+
+				</section>
+				<section>
+					<p>Se le llama algoritmo de burbuja porque los numeros mas pequeños burbujean a la superficie que seria lo mas cerca de la posicion 0</p>
+					<img src="imagenes/Burbuja.jpg" width="330" height="400">
+				</section>
+				<section>
+					<p>Primer recorrido a toda la lista</p>
+					<img src="imagenes/PrimeraPasadaBurbuja.jpg" width="330" height="400">
+				</section>
+				<section>
+					<p>Segundo recorrido a toda la lista</p>
+					<img src="imagenes/SegundaPasadaBurbuja.jpg" width="330" height="400">
+				</section>
+				<section>
+					<p>Tercer recorrido a toda la lista</p>
+					<img src="imagenes/TerceraPasadaBurbuja.jpg" width="330" height="400">
+				</section>
+				<section>
+					<p>Cuarto recorrido a toda la lista</p>
+					<img src="imagenes/CuartaPasadaBurbuja.jpg" width="330" height="300">
+				</section>
+				<section>
+					<p>Quinto recorrido a toda la lista</p>
+					<img src="imagenes/QuintaPasadaBurbuja.jpg" width="330" height="200">
+				</section>
+				<section>
+					<h2>Rendimiento del algoritmo</h2>
+					<p>Formula para calcular el rendimento del algoritmo:</p>
+					<img src="imagenes/FormulaBurbuja.jpg" width="200" height="100">
+					<p>Siendo n la cantidad de registros de la lista. Por lo que para el caso mas desfaborable, si tenemos una lista ordenada de forma descendente. La formula en este casi seria:</p>
+					<img src="imagenes/FormulaDesfBurbuja.jpg" width="200" height="70">
+				</section>
+				<section>
+					<p>Grafica de comportamiento:</p>
+
+					<img src="imagenes/GraficaBurbuja.jpg" width="600" height="400">
+					
+				</section>
+				</section>
+				<section>
+				<section>
+				<h3>Algaritmo de Inserción</h3>
+				<p>Se parte de un elemento incial <em>k</em> despues se toma el elemento <em>k+1</em> y se lo compara con todos los elementos de ya ordenados, osea <em>k</em>, y se detiene cuando encuentra un numero menor o cuando ya no haya elementos. En ese punto se inserta el elemento <em>k+1</em> y pasa al listado de <em>k.</em></p>
+				
+
+				</section>
+				<section>
+					<p>Ejemplo en el que el elemento <em>k+1</em> es el numero 31. La lista de elementos ordenados <em>k</em> son los numeros 17, 26, 54, 77, 93.</p>
+					<img src="imagenes/OrdenamientoInsercion.jpg" width="450" height="400">
+				</section>
+				<section>
+					<h2>Rendimiento del algoritmo</h2>
+					<p>En el caso de que los elementos se encuentren ordenados el algoritmo realizará <em>n</em> comparaciones, siendo <em>n</em> el numeros de elementos de la lista:</p>
+
+					<img src="imagenes/CasoOptimoInsercion.jpg" width="100" height="50">
+					<p>En el caso que todos los elementos de la lista esten ordenados de forma descendente la formula para el rendimiento del algoritmo es:</p>
+					<img src="imagenes/PeorCasoInsercion.jpg" width="100" height="50">
+				</section>
+				<section>
+					<p>Grafica de comportamiento:</p>
+
+					<img src="imagenes/GraficaInsercion.jpg" width="600" height="400">
+					
+				</section>
+				</section>
+				<section>
+				<section>
+				<h3>Algaritmo de Mezcla</h3>
+				<p>Esta basado en la tecnica de divide y venceras.</p>
+				<p>
+						Es un algoritmo recursivo que divide continuamente una lista por la mitad. 
 						</p>
 						<p>
-							Su sintaxis básica deriva de C/C++ y utiliza el modelo de objetos de la plataforma .NET, similar al de Java, aunque incluye mejoras derivadas de otros lenguajes.
+							Si la lista está vacía o tiene un solo ítem se ordena por definición (el caso base). Si la lista tiene más de un ítem dividimos la lista e invocamos recursivamente un ordenamiento por mezcla para ambas mitades. 
 
 						</p>
 						
-					
+				
+
+				</section>
+				<section>
+					<p>
+							Una vez que las dos mitades están ordenadas se realiza la operación fundamental denominada mezcla. La mezcla es el proceso de tomar dos listas ordenadas más pequeñas y combinarlas en una sola lista nueva y ordenada.
+
+						</p>
 				</section>
 				<section>
 					
 					<p>
-						Aunque C# forma parte de la plataforma .NET, esta es una API, mientras que C# es un lenguaje de programación independiente diseñado para generar programas sobre dicha plataforma. Ya existe un compilador implementado que provee el marco Mono - DotGNU, el cual genera programas para distintas plataformas como Windows Microsoft, Unix, Android, iOS, Windows Phone, Mac OS y GNU/Linux. 
-
+						
+						Partimos de una lista de 9 numeros enteros y se va dividiendo por la mitad hasta obtener una lista de un solo numero.
 					</p>
+					<img src="imagenes/Division.png" width="500" height="400">
+				</section>
+				<section>
+					
+					<p>
+						
+						Cuando ya tenemos dos listas ordenadas comenzamos a mezclarlas para obtener una lista nueva y ordenada.
+					</p>
+					<p>Para realizar la division de la lista se utiliza una funcion recursiva hasta obtener una lista de un solo numero.</p>
+					<img src="imagenes/Mezcla.png" width="500" height="400">
+				</section>
+				<section>
+					<h2>Rendimiento del algoritmo</h2>
+					<p>Como no es necesaria la busqueda en toda la lista sino en pociones mas pequeñas se dice que la formula de este algoritmo es:</p>
+
+					<img src="imagenes/FormulaMezcla.jpg" width="100" height="50">
+					<p>Este algoritmo es utilizado por Perl 5.8 por defecto y el ordenamiento de Arrays en Java se realiza con este mismo algoritmo.</p>
+					
+				</section>
+				<section>
+					<p>Grafica de comportamiento:</p>
+
+					<img src="imagenes/GraficaMezcla.jpg" width="600" height="400">
+					
+				</section>
+
+				<section>
+					
+						<h2>Codigo</h2>
+						<p>Para realizar la división de la lista se utiliza una función recursiva hasta obtener una lista de un solo numero.</p>
+						<pre><code class="hljs" >
+def ordenamientoPorMezcla (unaLista):
+    print("Dividir ", unaLista)
+    if len(unaLista)<2:
+        return unaLista
+    else:
+        '''divido la tabla en dos'''
+        mitad = len(unaLista)//2
+        '''De la mitad tomo la parte derecha'''
+        mitadIzquierda = unaLista[:mitad]
+        '''De la mitad tomo la parte izquierda'''
+        mitadDerecha = unaLista[mitad:]
+
+        '''Utilizo recursividad para volver a dividir la lista'''
+        izquierda = ordenamientoPorMezcla(mitadIzquierda)
+        derecha = ordenamientoPorMezcla(mitadDerecha)
+
+        return ordenar(izquierda, derecha)
+
+					</code></pre>
+					</section>
+					<section>
+						<p>Cuando la lista tiene un solo numero llama a la funcion <em>ordenar</em> para que los numeros se mezclen de forma ordenada en la lista. Consultando si la mitad izquierda </p>
+						<pre><code class="hljs" >
+def ordenar(mitadIzquierda, mitadDerecha):
+    i, j = 0,0
+    result = []
+
+    while i < len(mitadIzquierda) and j < len(mitadDerecha):
+        if mitadIzquierda[i] < mitadDerecha[j]:
+                result.append(mitadIzquierda[i])
+                i=i+1
+        else:
+                result.append(mitadDerecha[j])
+                j=j+1
+
+    result += mitadIzquierda[i:]
+    result += mitadDerecha[j:]
+
+    print("Mezclar ",result)
+    return result       
+
+
+					</code></pre>
+					</section>
+
+
+
+					
+					
+				</section>
+				<section>
+					
+					<section>
+				<h3>Algaritmo Rapido</h3>
+				<p>Primero se selecciona un elemento de la lista a ordenar al que se le llamara <strong>pivote</strong>. Luego se recorre la lista y se situan los numeros menores a un costado de la lista y los mayores al otro lado.</p>
+				<p>Como resultado se tienen dos sublistas. Para continuar con el procedimiento se deberá realizar el mismo paso anterior se elegira un pivote por cada lista y se obtendran dos sublistas.</p>
+				<p>Cuando las listas resultantes tengan un solo elemento se tendra ordenada la lista principal.</p>
+				
+
+				</section>
+				<section>
+					<p>Se elige el primer pivote, que en este caso sera 54</p>
+					<img src="imagenes/PrimerPivote.jpg" width="400" height="100">
+					<p>Se eligen dos marcadores de posicion <em>marcaIzq</em> y <em>marcaDer</em> que se encontrarán al principio y final de los items restantes de la lista. El objetivo es mover los items que esten en el lado equivocado.</p>
+					
+				</section>
+				<section>
+					<p>Pasos</p>
+					<img src="imagenes/Pasos.jpg" width="400" height="500">
+					
+				</section>
+				<section>
+					<h2>Rendimiento del algoritmo</h2>
+					<p>La eficiencia del algoritmo depende de la eleccion del pivote.</p>
+					<p>El mejor caso se produce cuando el pivote termina en el centro de la lista. Para este caso la formula del algoritmo sera:</p>
+
+					<img src="imagenes/CasoOptimoRapido.jpg" width="100" height="50">
+					
+				</section>
+				<section>
+					<p>El peor caso se produce cuando el pivote se encuentra en un extremo de la lista. El orden de complejidad del algoritmo sera:</p>
+					<img src="imagenes/CasoDesfavorableRapido.jpg" width="100" height="50">
+				</section>
+				<section>
+					<p>Grafica de comportamiento:</p>
+
+					<img src="imagenes/GraficaRapido.jpg" width="600" height="400">
+					
+				</section>
+				</section>
+				
+				
+
+
+				<section>
+					
+				<section>
+				<h3>Algaritmo de selección</h3>
+				<p>Primero se busca el elemento maximo de la lista y se intercambia por el ultimo.</p>
+				<p>Luego se busca el siguiente numero maximo de la lista y se intercambia por el anteultimo.</p>
+				<p>Y asi se continua hasta terminar con todos los elementos de la lista</p>
+				<p>Su funcionamiento es un poco mejor que el del <em>algoritmo de burbuja</em> ya que realiza un solo intercambio por pasada</p>
+				
+
 				</section>
 				
 				<section>
-					<section>
-						<h2>Historia</h2>
-						<p>En enero de 1999, <a href="https://es.wikipedia.org/wiki/Anders_Hejlsberg" target="_blank">Anders Hejlsberg</a>, creador de lenguajes como Turbo Pascal y Delphi, formó un equipo para diseñar un nuevo lenguaje, cuyo nombre inicial fue <strong>Cool</strong> (C-like Object Oriented Language). Microsoft quiso mantener dicho nombre como definitivo pero por razones de registro de marca tuvo que echarse para atrás.</p>
-					</section>
-					<section>
-						<h3>C# Versión 2</h3>
-						<p>En esta version lanzada en 2005 se encuentran muchas caracteristicas nuevas como:</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/generics/" target="_blank">Genericos</a> Listas genericas</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/keywords/partial-type" target="_blank">Tipos parciales</a> Clases divididas en varios archivos</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/delegate-operator" target="_blank">Métodos anónimos</a> Método delegate</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/builtin-types/nullable-value-types" target="_blank">Tipos anulables</a> Valores admiten NULL</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/concepts/iterators" target="_blank">Iteradores</a> Ciclo Foreach</p>
-					</section>
+					<p>Pasos</p>
+					<img src="imagenes/PasosSeleccion.jpg" width="400" height="500">
+					
+				</section>
+				<section>
+					<h2>Rendimiento del algoritmo</h2>
+					<p>La eficiencia del algoritmo depende de la eleccion del pivote.</p>
+					<p>El mejor caso se produce cuando el pivote termina en el centro de la lista. Para este caso la formula del algoritmo sera:</p>
 
+					<img src="imagenes/FormulaSeleccion.jpg" width="100" height="50">
+					
+				</section>
+				
+
+				<section>
+					<p>Grafica de comportamiento:</p>
+
+					<img src="imagenes/GraficaSeleccion.jpg" width="600" height="400">
+					
+				</section>
+				
+				</section>
+
+
+				<section>
+					<h2>Grafico de comparacion</h2>
+				<img src="imagenes/GraficaTodos.jpg" width="700" height="450">
+				</section>
+
+				
+				<section>
+					<p>En el grafico se puede observar que el algoritmo con peor comportamiento es el de <em>Burbuja</em> seguido por el de <em>Insercion</em> y despues el de <em>Seleccion</em>. Los que tienen un comportamiento parecido son el de <em>Mezcla</em> y el <em>Rapido</em></p>
+				</section>
+
+				<section>
 					<section>
-						<h3>C# Versión 3</h3>
-						<p>Esta version apareció a finales de 2007. Estas son algunas de sus características:</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/classes-and-structs/auto-implemented-properties" target="_blank">Propiedades auto-implementadas</a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/visual-basic/programming-guide/language-features/objects-and-classes/anonymous-types" target="_blank">Tipos anónimos</a> Objetos sin definición de clase</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/linq/query-expression-basics" target="_blank">Consultas - LINQ</a> Language INtegrated Query.</p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2017/09/21/metodos-anonimos-y-expresiones-lambda-en-c/">Expresiones Lambda</a> Crea tipos delegados</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/concepts/expression-trees/" target="_blank">Árboles de expresión</a> Cada nodo es una expresión</p>
-						<p class="fragment"><a href="https://itblogsogeti.com/2017/07/20/metodos-de-extension-para-c/" target="_blank">Métodos de extensión</a> Agregar métodos a tipos existentes</p>
-					</section>
-					<section>
-						<h3>C# Versión 4</h3>
-						<p>Esta version apareció en 2010. Estas son sus principales características:</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/builtin-types/reference-types" target="_blank">Tipos dinámicos</a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/classes-and-structs/named-and-optional-arguments" target="_blank">Arg. opc. y con nombre</a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/interop/interoperability-overview" target="_blank">Tipos interop embebidos</a></p>
-						
-					</section>
-					<section>
-					<h3>C# Versión 5</h3>
-						<p>Versión lanzada  con Visual Studio 2012. Sus características son:</p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/operators/await" target="_blank">Programación asincrónica con Asinc y Await</a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/attributes/caller-information" target="_blank">Atributos <em>Caller info</em></a> Permite recuperar información sobre el contexto en el que se está</p>
-					</section>
-					<section>
-					<h3>C# Versión 6</h3>
-						<p>Versión lanzada  con Visual Studio 2015. Estas son las características:</p>
-						<p class="fragment"><a href="http://geekswithblogs.net/BlackRabbitCoder/archive/2015/04/16/c.net-little-wonders-static-using-statements-in-c-6.aspx" target="_blank">Importaciones estáticas</a> Importación de clases estáticas</p>
-						<p class="fragment"><a href="https://www.campusmvp.es/recursos/post/que-son-los-filtros-de-excepciones-en-el-lenguaje-c-sharp.aspx" target="_blank">Filtros de excepciones</a> Filtrar el tipo de excepción dentro del <em>catch</em></p>
-						<p class="fragment"><a href="http://geekswithblogs.net/WinAZ/archive/2015/06/30/whatrsquos-new-in-c-6.0-auto-property-initializers.aspx" target="_blank">Inicializadores de propiedad</a>Asigna un valor inicial a la propiedades de la clase</p>
-						<p class="fragment"><a href="https://lostechies.com/jimmybogard/2015/12/17/c-6-feature-review-expression-bodied-function-members/" target="_blank">Miembros con una expresión como cuerpo</a></p>
-					</section>
-					<section>
-						<p><a href="https://riptutorial.com/es/csharp/example/51/propagacion-nula" target="_blank">Propagador null</a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/language-reference/tokens/interpolated" target="_blank">Cadenas interpoladas</a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/programming-guide/classes-and-structs/how-to-initialize-a-dictionary-with-a-collection-initializer" target="_blank">Inicializador de diccionario</a> Colección de pares clave-valor</p>
-					</section>
-					<section>
-					<h3>C# Versión 7</h3>
-						<p>Versión lanzada  con Visual Studio 2017. Estas son las características:</p>
-						<p class="fragment"><a href="http://geekswithblogs.net/BlackRabbitCoder/archive/2015/04/16/c.net-little-wonders-static-using-statements-in-c-6.aspx" target="_blank">Variables <em>out</em></a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/tuples" target="_blank">Tuplas y deconstrucción</a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/pattern-matching" target="_blank">Coincidencia de patrones</a></p>
-						<p class="fragment"><a href="https://riptutorial.com/es/csharp/example/6330/funciones-locales" target="_blank">Funciones locales</a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/es-es/dotnet/csharp/whats-new/csharp-7#ref-locals-and-returns" target="_blank">Referencias locales y devoluciones</a></p>
-					</section>
-					<section>
-					<h3>C# Versión 8</h3>
-						<p>C # 8.0 es la primera versión importante de C # que se dirige específicamente a <a href="https://docs.microsoft.com/es-es/dotnet/core/introduction" target="_blank">.NET Core</a>. Estas son algunas de las funcionalidades:</p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2019/09/04/c-8-0-specification-readonly-members/" target="_blank">Readonly miembros</a></p>
-						<p class="fragment"><a href="https://docs.microsoft.com/en-us/dotnet/csharp/whats-new/csharp-8#default-interface-methods" target="_blank">Metodos de interfaz predeterminados</a></p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2019/09/08/c-8-0-specification-pattern-matching-positional-patterns/" target="_blank">Mas funcionalidad de patrones</a> Switch, Property, Tuples, Positional, etc</p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2019/09/02/c-8-0-specification-using-declarations/" target="_blank">Declaraciones de Uso</a></p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2019/09/03/c-8-0-specification-default-interface-methods-o-default-implementations-in-interfaces/" target="_blank">Funciones estaticas locales</a></p>
-					</section>
-					<section>
-						<p><a href="https://geeks.ms/jorge/2019/09/12/c-8-0-specification-nullable-reference-types/" target="_blank">Nullable reference types</a></p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2019/09/11/c-8-0-specification-null-coalescing-assignment/" target="_blank">Null-coalescing assignment</a></p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2019/09/10/c-8-0-specification-asynchronous-streams/" target="_blank">Asynchronous Streams</p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2019/09/09/c-8-0-specification-disposable-ref-structs/" target="_blank">Disposable ref structs</a></p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2019/09/01/c-8-0-specification-static-local-functions/" target="_blank">Funciones estaticas locales</a></p>
-						<p class="fragment"><a href="https://geeks.ms/jorge/2019/08/31/c-8-0-specification-index-and-ranges/" target="_blank">Index and Ranges</a></p>
-					</section>
-					<section>
-						<h3>Historia</h3>
-						<p>Video sobre lo comentado hasta el momento</p>
-						<div>
-							<iframe width="560" height="315" src="https://www.youtube.com/embed/Ic6XSuxID0g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
-						
+					<h2>Algoritmo de Busqueda</h2>
+				</section>
+
+				<section>
+					<h3>Busqueda Binaria</h3>
+					<p>Se parte desde una lista ordenada, como la que devuelve del algoritmo anterior. Lo que realiza esta busqueda es consultar si el valor buscado se encuentra en la mitad, sino es asi consulta si el valor a buscar es mayor al que se encuentra en la mitad de la lista.</p>
+					<p>Si es mayor se continuará la busqueda en la mitad con valores mayores. Realizando el procedimiento anterior.</p>
+					<p>Ahora si el valor es menor la busqueda se realizara en la mitad con los valores menores</p>
+				</section>
+				<section>
+						<p>Lo que devuelve la funcion es si el numero se encuentra o no en la lista. Recibirá por parametro la lista y el valor que se buscará en ella.</p>
+						<pre><code class="hljs" >
+def busquedaBinaria(arrayOrdenado, valorABuscar):
+    '''Primero se busca por todo el array'''
+    primeraPosicionArray = 0
+    ultimaPosicionArray = len(arrayOrdenado) - 1
+    encontrado = False
+
+    '''Se va a repetir mientras la primera posicion del array sea menor igual a la ultima y que no se haya encontrado'''
+    while primeraPosicionArray <= ultimaPosicionArray and not encontrado:
+        '''Busco la posicion de la mitad del array'''
+        posicionMitad = (primeraPosicionArray + ultimaPosicionArray) // 2
+        '''Consulto si el valor de esta posición es igual al valor que se desea encontrar'''
+        if arrayOrdenado[posicionMitad] == valorABuscar:
+            encontrado = True
+
+
+        else:
+            '''Consulto si el valor a buscar es mayor al valor que se encuentra en la posición de la mitad del array'''
+            if(valorABuscar > arrayOrdenado[posicionMitad]):
+                '''Si es así solo tengo que buscar el valor de la mitad para arriba
+                por lo que la primera posición ahora es la mitad mas uno'''
+                primeraPosicionArray = posicionMitad + 1
+            else:
+                ultimaPosicionArray = posicionMitad - 1
+
+    return encontrado
+
+
+
+					</code></pre>
 					</section>
 				</section>
 
-				<section>Tipos de Datos </section>
-				<section>Variables</section>
-				<section>Operadores</section>
-				<section>Instrucciones de Control</section>
-				<section>Metodos</section>
-				<section>Matrices</section>
-				<section>Clases</section>
-				<section>LINQ</section>
+				<section>
+					<h1>FIN</h1>
+				</section>
 				
-
+				
+				
 			</div>
 		</div>
 
