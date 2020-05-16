@@ -208,23 +208,23 @@
 						<h2>Código</h2>
 						<p>Para realizar la división de la lista se utiliza una función recursiva hasta obtener una lista de un solo número.</p>
 						<pre><code class="hljs" >
-def ordenamientoPorMezcla (unaLista):
-    print("Dividir ", unaLista)
-    if len(unaLista)<2:
-        return unaLista
-    else:
+def ordenamientoPorMezcla(unaLista, listaCompleta):
+    print("Dividir ",unaLista)
+    if len(unaLista)>1:
+       
         '''divido la tabla en dos'''
         mitad = len(unaLista)//2
-        '''De la mitad tomo la parte derecha'''
+        '''DE LA MITAD TOMO LA PARTE DERECHA'''
         mitadIzquierda = unaLista[:mitad]
-        '''De la mitad tomo la parte izquierda'''
+        '''DE LA MITAD TOMO LA PARTE IZQUIERDA'''
         mitadDerecha = unaLista[mitad:]
 
-        '''Utilizo recursividad para volver a dividir la lista'''
-        izquierda = ordenamientoPorMezcla(mitadIzquierda)
-        derecha = ordenamientoPorMezcla(mitadDerecha)
-
-        return ordenar(izquierda, derecha)
+        '''UTILIZO RECUSRSIVIDAD PARA VOLVER A DIVIDIR LA LISTA'''
+        ordenamientoPorMezcla(mitadIzquierda, listaCompleta)
+        ordenamientoPorMezcla(mitadDerecha, listaCompleta)
+ 
+        ordenar(mitadIzquierda, mitadDerecha)
+        print("Arreglo completo:",listaCompleta)
 
 					</code></pre>
 					</section>
@@ -233,21 +233,41 @@ def ordenamientoPorMezcla (unaLista):
 						<pre><code class="hljs" >
 def ordenar(mitadIzquierda, mitadDerecha):
     i, j = 0,0
-    result = []
-
+    k=0
+    
+    result = np.zeros(len(mitadIzquierda) + len(mitadDerecha), int)
+   
     while i < len(mitadIzquierda) and j < len(mitadDerecha):
         if mitadIzquierda[i] < mitadDerecha[j]:
-                result.append(mitadIzquierda[i])
-                i=i+1
+            result[k] = mitadIzquierda[i]
+            i=i+1
         else:
-                result.append(mitadDerecha[j])
-                j=j+1
-
-    result += mitadIzquierda[i:]
-    result += mitadDerecha[j:]
-
-    print("Mezclar ",result)
-    return result       
+            result[k]=mitadDerecha[j]
+            j=j+1
+        k=k+1
+    
+    '''SI TENGO MAS NUMEROS EN LA MITAD IZQUIERDA LOS RECORRO Y LOS AGREGO'''
+    while i<len(mitadIzquierda):
+        result[k] = mitadIzquierda[i]
+        i=i+1
+        k=k+1
+    
+    '''SI TENGO MAS NUMEROS EN LA MITAD DERECHA LOS RECORRO Y LOS AGREGO'''
+    while j<len(mitadDerecha):
+        result[k] = mitadDerecha[j]
+        j=j+1
+        k=k+1
+                
+    i, j = 0,0
+    
+    for num in result:
+        if(i<=len(mitadIzquierda) - 1):
+            mitadIzquierda[i] = num
+            i = i+1
+            
+        else:
+            mitadDerecha[j] = num
+            j=j+1
 
 
 					</code></pre>
@@ -363,30 +383,18 @@ def ordenar(mitadIzquierda, mitadDerecha):
 						<p>Lo que devuelve la función, es si el número se encuentra o no en la lista. Recibirá por parámetro la lista y el valor que se buscará en ella.</p>
 						<pre><code class="hljs" >
 def busquedaBinaria(arrayOrdenado, valorABuscar):
-    '''Primero se busca por todo el array'''
-    primeraPosicionArray = 0
-    ultimaPosicionArray = len(arrayOrdenado) - 1
-    encontrado = False
-
-    '''Se va a repetir mientras la primera posicion del array sea menor igual a la ultima y que no se haya encontrado'''
-    while primeraPosicionArray <= ultimaPosicionArray and not encontrado:
-        '''Busco la posicion de la mitad del array'''
-        posicionMitad = (primeraPosicionArray + ultimaPosicionArray) // 2
-        '''Consulto si el valor de esta posición es igual al valor que se desea encontrar'''
-        if arrayOrdenado[posicionMitad] == valorABuscar:
-            encontrado = True
-
-
+        if len(arrayOrdenado) == 0:
+            return False
         else:
-            '''Consulto si el valor a buscar es mayor al valor que se encuentra en la posición de la mitad del array'''
-            if(valorABuscar > arrayOrdenado[posicionMitad]):
-                '''Si es así solo tengo que buscar el valor de la mitad para arriba
-                por lo que la primera posición ahora es la mitad mas uno'''
-                primeraPosicionArray = posicionMitad + 1
+            posicionMitad = len(arrayOrdenado)//2
+            if arrayOrdenado[posicionMitad]==valorABuscar:
+              
+              if valorABuscar<arrayOrdenado[posicionMitad]:
+                return busquedaBinaria(arrayOrdenado[:posicionMitad],valorABuscar)
+              else:
+                return busquedaBinaria(arrayOrdenado[posicionMitad+1:],valorABuscar)  
             else:
-                ultimaPosicionArray = posicionMitad - 1
-
-    return encontrado
+                return True
 
 
 
