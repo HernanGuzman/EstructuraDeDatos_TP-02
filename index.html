@@ -247,13 +247,13 @@ def ordenar(mitadIzquierda, mitadDerecha):
         k=k+1
     
     '''SI TENGO MAS NUMEROS EN LA MITAD IZQUIERDA LOS RECORRO Y LOS AGREGO'''
-    while i<len(mitadIzquierda):
+    while i< len(mitadIzquierda):
         result[k] = mitadIzquierda[i]
         i=i+1
         k=k+1
     
     '''SI TENGO MAS NUMEROS EN LA MITAD DERECHA LOS RECORRO Y LOS AGREGO'''
-    while j<len(mitadDerecha):
+    while j< len(mitadDerecha):
         result[k] = mitadDerecha[j]
         j=j+1
         k=k+1
@@ -389,7 +389,7 @@ def busquedaBinaria(arrayOrdenado, valorABuscar):
             posicionMitad = len(arrayOrdenado)//2
             if arrayOrdenado[posicionMitad]==valorABuscar:
               
-              if valorABuscar<arrayOrdenado[posicionMitad]:
+              if valorABuscar< arrayOrdenado[posicionMitad]:
                 return busquedaBinaria(arrayOrdenado[:posicionMitad],valorABuscar)
               else:
                 return busquedaBinaria(arrayOrdenado[posicionMitad+1:],valorABuscar)  
