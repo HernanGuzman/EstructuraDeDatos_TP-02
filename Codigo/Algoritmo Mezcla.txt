@@ -1,11 +1,10 @@
 ﻿import numpy as np
 
-
-def ordenamientoPorMezcla(unaLista):
+def ordenamientoPorMezcla(unaLista, listaCompleta):
     print("Dividir ",unaLista)
-    if len(unaLista)<2:
-        return unaLista
-    else:
+    if len(unaLista)>1:
+        #return unaLista
+    #else:
         '''divido la tabla en dos'''
         mitad = len(unaLista)//2
         '''DE LA MITAD TOMO LA PARTE DERECHA'''
@@ -14,23 +13,22 @@ def ordenamientoPorMezcla(unaLista):
         mitadDerecha = unaLista[mitad:]
 
         '''UTILIZO RECUSRSIVIDAD PARA VOLVER A DIVIDIR LA LISTA'''
-        izquierda = ordenamientoPorMezcla(mitadIzquierda)
-        derecha = ordenamientoPorMezcla(mitadDerecha)
-        
-        
+        #izquierda = ordenamientoPorMezcla(mitadIzquierda)
+        #derecha = ordenamientoPorMezcla(mitadDerecha)
+        ordenamientoPorMezcla(mitadIzquierda, listaCompleta)
+        ordenamientoPorMezcla(mitadDerecha, listaCompleta)
  
-        return ordenar(izquierda, derecha, unaLista)
-    
-    
+        #return ordenar(izquierda, derecha, unaLista)
+        ordenar(mitadIzquierda, mitadDerecha)
+        print("Arreglo completo:",listaCompleta)
         
-        
-def ordenar(mitadIzquierda, mitadDerecha, unaLista):
     
+#def ordenar(mitadIzquierda, mitadDerecha, unaLista):
+def ordenar(mitadIzquierda, mitadDerecha):
     i, j = 0,0
     k=0
     
     result = np.zeros(len(mitadIzquierda) + len(mitadDerecha), int)
- 
    
     while i < len(mitadIzquierda) and j < len(mitadDerecha):
         if mitadIzquierda[i] < mitadDerecha[j]:
@@ -55,6 +53,54 @@ def ordenar(mitadIzquierda, mitadDerecha, unaLista):
                 
     i, j = 0,0
     
+    for num in result:
+        if(i<=len(mitadIzquierda) - 1):
+            mitadIzquierda[i] = num
+            i = i+1
+            
+        else:
+            mitadDerecha[j] = num
+            j=j+1
+    
+        
+    print("Mezclar ",result)
+    print("Mitad Izquierda Ordenada ",mitadIzquierda)
+    print("Mitad Derecha Ordenada ",mitadDerecha)
+
+def busquedaBinaria(arrayOrdenado, valorABuscar):
+        if len(arrayOrdenado) == 0:
+            return False
+        else:
+            posicionMitad = len(arrayOrdenado)//2
+            if arrayOrdenado[posicionMitad]==valorABuscar:
+              
+              if valorABuscar<arrayOrdenado[posicionMitad]:
+                return busquedaBinaria(arrayOrdenado[:posicionMitad],valorABuscar)
+              else:
+                return busquedaBinaria(arrayOrdenado[posicionMitad+1:],valorABuscar)  
+            else:
+                return True
+              
+      
+        
+    
+    
+
+vector = np.array([40,5,85,2,9,78,65,10,5,0])
+
+print(vector)
+
+ordenamientoPorMezcla(vector,vector)
+
+print(vector)
+
+numeroABuscar = 2
+
+if(busquedaBinaria(vector, numeroABuscar)):
+    
+    print("EL NUMERO ", numeroABuscar , " SE ENCUENTRA EN EL ARRAY")
+else:
+    print("EL NUMERO ", numeroABuscar , " NO SE ENCUENTRA EN EL ARRAY")
     for num in result:
         if(i<=len(mitadIzquierda) - 1):
             mitadIzquierda[i] = num
